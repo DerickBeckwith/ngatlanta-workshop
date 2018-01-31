@@ -1,16 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Hero } from './hero';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class HeroService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   getHeroes() {
-    return [
-      new Hero(11, 'john', 'speed'),
-      new Hero(12, 'sally', 'flight'),
-      new Hero(13, 'fred', 'strength'),
-      new Hero(14, 'chloe', 'drool')
-    ];
+    return this.http.get<Hero[]>('./heroes.json');
   }
 }
