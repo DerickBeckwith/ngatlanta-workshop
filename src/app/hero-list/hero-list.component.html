@@ -4,8 +4,8 @@
 <div>
 
   <ul>
-    <li *ngFor="let hero of heroes" (click)="selectIt(hero)">
-      {{hero.name}}
+    <li *ngFor="let h of heroes" (click)="selectIt(h)">
+      <app-hero-detail [hero]="h"></app-hero-detail>
     </li>
   </ul>
 
